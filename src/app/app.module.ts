@@ -1,18 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {AppComponent} from './app.component';
+import {en_US, NZ_I18N} from 'ng-zorro-antd';
+import {registerLocaleData} from '@angular/common';
+import en from '@angular/common/locales/en';
+import {CoreModule} from './core/core.module';
 
-import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
+registerLocaleData(en);
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    CoreModule,
   ],
-  providers: [],
+  exports: [],
+  providers: [{ provide: NZ_I18N, useValue: en_US }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
